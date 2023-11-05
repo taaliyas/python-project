@@ -8,7 +8,7 @@ st.write("""
 
 x = st.number_input("Time: ", 0)
 start = st.button("Start Countdown")
-stop = ("Stop Countdown")
+stop = st.button("Stop Countdown")
 
 if start:
     while True:
