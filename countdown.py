@@ -6,21 +6,24 @@ st.write("""
          Input your time (in seconds) and start the countdown!
 """)
 
-x = st.number_input("Time: ", 0)
+t = st.number_input("Time: ", 0)
 start = st.button("Start Countdown")
 stop = st.button("Stop Countdown")
 
 if start:
-    while True:
-        st.write(x)
-        x -= 1
+    while t:
+        mins, secs = divmod(t, 60)
+        timeformat = '{:02d}:{:02d}'.format(mins, secs)
+        st.write(timeformat, end='\r')
         time.sleep(1)
-        if x == 0:
+        t -= 1
+        if t == 0:
             st.success("Countdown Finished!")
             break
-        elif x < 0:
+        elif t < 0:
             st.write("Invalid.")
             break
+
 
 if stop:
     st.success("Countdown Finished!")
