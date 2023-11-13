@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import winsound
 
 st.write("""
          # Countdown Timer
@@ -19,6 +20,7 @@ if start:
         t -= 1
         if t == 0:
             st.success("Countdown Finished!")
+            winsound.PlaySound('alarm.wav', winsound.SND_FILENAME)
             break
         elif t < 0:
             st.write("Invalid.")
